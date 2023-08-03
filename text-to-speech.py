@@ -4,9 +4,12 @@ import sys
 
 def textToSpeech():
 	myText = sys.argv[1]
-	language = sys.argv[2];
+	language = sys.argv[2]
+	if not myText or not language:
+		print("Sorry please pass the text and language options")
+		return
 	myObject = gTTS(text=myText, lang=language, slow=False)
-	myObject.save('hello-world.mp3')
+	myObject.save('text-to-speech.mp3')
 	print('done');
 	return;
 
